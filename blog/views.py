@@ -3,11 +3,15 @@ from django.utils import timezone
 from django.shortcuts import redirect
 from .forms import PostForm
 from .models import Post
+from django.contrib import auth
 
 
 def post_list(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'blog/post_list.html', {'posts': posts})
+    if request.user.is_authenticated():
+        posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+        return render(request, 'blog/post_list.html', {'posts': posts, 'username': auth.get_user(request).username})
+    else:
+        return render(request, 'blog/post_list.html')
 
 
 def post_new(request):
