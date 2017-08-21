@@ -1,9 +1,11 @@
-from django.shortcuts import render
-from django.utils import timezone
+from django.contrib import auth
 from django.shortcuts import redirect
+from django.shortcuts import render, get_object_or_404
+from django.utils import timezone
+import os
+
 from .forms import PostForm
 from .models import Post
-from django.contrib import auth
 
 
 def post_list(request):
@@ -26,3 +28,28 @@ def post_new(request):
     else:
         form = PostForm()
     return render(request, 'blog/post_edit.html', {'form': form})
+
+
+def post_detail(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+
+    module_dir = os.path.dirname(__file__).replace("blog", "media")  # get current directory
+    file_path = os.path.join(module_dir, str(post.script))
+    f = open(file_path, "r")
+    script_text = f.read()
+    f.close()
+
+    return render(request, 'blog/post_detail.html', {'post': post, "script_text": script_text})
+
+
+def post_start(request):
+    post = get_object_or_404(Post, pk=request.POST.get('post_id', ''))
+    print(post.script)
+    ## СТАРТ СКРИПТА
+    module_dir = os.path.dirname(__file__).replace("blog", "media")  # get current directory
+    file_path = os.path.join(module_dir, str(post.script))
+    f = open(file_path, "r")
+    script_text = f.read()
+    f.close()
+
+    return render(request, 'blog/post_detail.html', {'post': post, "script_text": script_text})
