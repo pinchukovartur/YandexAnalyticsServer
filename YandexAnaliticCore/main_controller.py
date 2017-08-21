@@ -1,34 +1,52 @@
 # install libs
+import datetime
+from subprocess import Popen
+
 import psutil
 
 
-# return all active processes
-def get_processes():
-    return psutil.process_iter()
+class ScriptController:
+    # метод иницализации
+    def __init__(self):
+        self.dict_run_script = dict()
 
+    # метод возвращает true если скрипт имеет тип MULTI, если SINGLE то False, иначе генерирурет ошибку
+    def check_type_script(self, script_type):
+        if script_type == "SINGLE":
+            return False
+        elif script_type == "MULTI":
+            return True
+        else:
+            raise NameError("ERROR!!! неизвестный тип скрипта")
 
-SCRIPT_NAME = "hello.py"
-USER_NAME = "ADMIN"
-TYPE_SCRIPT = "SINGLE"  # SINGLE/MULTI
-SCRIPT_TEXT = "print('Hello World')"
+    # метод проверяет запущен ли скрипт в данный момент
+    def check_run_script(self, script):
 
-# словарь с запушенными скриптами типа - <SCRIPT_NAME+USER_NAME>: <PID>
-dict_active_script = dict()
+        print("Есть ли в словаре pid - " + str(self.dict_run_script.get(script.username + script.name)))
 
-# если скрипт для одиночного использования
-if TYPE_SCRIPT == "SINGLE":
-    if dict_active_script.get(SCRIPT_NAME + USER_NAME) is not None:
-        #  проверяем активен ли данный процесс
-        for proc in get_processes():
-            if proc.pid == dict_active_script.get(SCRIPT_NAME + USER_NAME):
-                # процесс еще активен => кидает ошибку
-                raise NameError("ERROR!!! одна копия уже запущена")
-            else:
-                # скрипт окончил работу, следовательно удаляем его из словаря и запускаем новый
-                dict_active_script.pop(SCRIPT_NAME + USER_NAME)
-                ####  ЗАПУСК СКРИПТА
+        # проверяем, есть ли скрипт в словаре с запущеными скриптами
+        if self.dict_run_script.get(script.username + script.name) is not None:
+            #  проверяем активен ли данный процесс
+            for process in psutil.process_iter():
+                # проверяем совпадает ли pid процесса с pid в словаре
+                if str(process.pid) == self.dict_run_script.get(script.username + script.name):
+                    # процесс еще активен
+                    return False
+            # скрипт окончил работу
+            self.dict_run_script.pop(script.username + script.name)
+            print(str(script.username + script.name) + " окончил свою работу")
+            return True
+        else:
+            return True
 
-        pass
-    else:
-        # СТАРТ СКРИПТ
-        pass
+    # метод запускающий скрипт
+    def run_script(self, script):
+        # создаем файлик со скриптом
+        file_name = script.name + script.username + str(datetime.datetime.now().strftime("%Y-%m-%d_%H_%M_%S"))
+        file = open(file_name + ".py", "w")
+        file.write(script.text)
+        file.close()
+        # запускаем скрипт
+        process = Popen('python ' + file_name + ".py" + ">" + file_name + ".txt", shell=True)
+        print("Старт процесс - " + str(process.pid))
+        self.dict_run_script[script.username + script.name] = str(process.pid)

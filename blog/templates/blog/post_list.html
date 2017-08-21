@@ -19,12 +19,7 @@
         {% endif %}
     </ui>
 </div>
-{% if post %}
-<div class="post">
-    <p>{{ post.published_date }}</p>
-    <h1><a href="">{{ post.title }}</a></h1>
-    <p>{{ post.text|linebreaksbr }}</p>
-</div>
+{% if posts %}
 <div class="content container">
     <div class="row">
         <div class="col-md-8">
@@ -35,6 +30,7 @@
                     </div>
                     <h1><a href="">{{ post.title }}</a></h1>
                     <p>{{ post.text|linebreaksbr }}</p>
+                    <a href="/media/{{ post.script }}">Script</a>
                 </div>
             {% endfor %}
         </div>
