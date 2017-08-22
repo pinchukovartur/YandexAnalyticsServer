@@ -3,7 +3,8 @@ from django.shortcuts import redirect
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 import os
-
+from .scripts_controller.scripts_controller import run_script
+from datetime import datetime
 from .forms import PostForm
 from .models import Post
 
@@ -33,7 +34,7 @@ def post_new(request):
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
 
-    module_dir = os.path.dirname(__file__).replace("blog", "media")  # get current directory
+    module_dir = os.path.dirname(__file__) + "/media/"
     file_path = os.path.join(module_dir, str(post.script))
     f = open(file_path, "r")
     script_text = f.read()
@@ -44,10 +45,12 @@ def post_detail(request, pk):
 
 def post_start(request):
     post = get_object_or_404(Post, pk=request.POST.get('post_id', ''))
-    print(post.script)
-    ## СТАРТ СКРИПТА
-    module_dir = os.path.dirname(__file__).replace("blog", "media")  # get current directory
+
+    module_dir = os.path.dirname(__file__) + "/media/"
     file_path = os.path.join(module_dir, str(post.script))
+
+    run_script(str(post.title), str(post.type), str(post.author), file_path, str(datetime.today()))
+
     f = open(file_path, "r")
     script_text = f.read()
     f.close()
