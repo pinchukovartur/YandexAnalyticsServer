@@ -1,32 +1,9 @@
 import os
 import xml.etree.cElementTree as ET
 from subprocess import Popen
-from datetime import datetime
+
 
 # install libs
-import psutil
-
-
-# метод проверяет запущен ли скрипт в данный момент
-
-
-def __check_run_script(self, script):
-    print("Есть ли в словаре pid - " + str(self.dict_run_script.get(script.username + script.name)))
-
-    # проверяем, есть ли скрипт в словаре с запущеными скриптами
-    if self.dict_run_script.get(script.username + script.name) is not None:
-        #  проверяем активен ли данный процесс
-        for process in psutil.process_iter():
-            # проверяем совпадает ли pid процесса с pid в словаре
-            if str(process.pid) == self.dict_run_script.get(script.username + script.name):
-                # процесс еще активен
-                return False
-        # скрипт окончил работу
-        self.dict_run_script.pop(script.username + script.name)
-        print(str(script.username + script.name) + " окончил свою работу")
-        return True
-    else:
-        return True
 
 
 # метод запускающий скрипт
@@ -81,3 +58,33 @@ def __check_file_exist(config_path):
 def __check_folder(directory):
     if not os.path.exists(directory):
         os.makedirs(directory)
+
+
+def check_run_scripts(username):
+    pass
+
+
+# метод удаляет из конфига все устаревшие скрипты
+def __delete_old_script_in_xml(config_path):
+    # проходим по всем активным pid-ам
+    # for process in psutil.process_iter():
+    # проходим по всем скриптам в конфиге
+    tree = ET.parse(config_path)
+    print(tree)
+    for scripts in tree.iter():
+        if scripts.tag == "scripts":
+            for script in scripts:
+                for subelem in script:
+                    print(subelem.tag)
+                    pid = subelem.tag
+                    if subelem.tag == "PID" and subelem.text == "7920":
+                        scripts.remove(script)
+                        pass
+                    #print(pid)
+
+                # tr.remove(script)
+
+    tree.write(config_path)
+
+
+__delete_script_in_xml("D:\Projects\Django\web-post\\blog\scripts_controller\\xml_data\\admin.xml")

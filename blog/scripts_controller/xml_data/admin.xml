@@ -27,4 +27,11 @@
         <author>admin</author>
         <PID>8096</PID>
     </script>
-</scripts>
+    <script>
+        <name>Test</name>
+        <type>MULTI</type>
+        <start_data>2017-08-22 18:35:46.653227</start_data>
+        <author>admin</author>
+        <PID>668</PID>
+    </script>
+    </scripts>
