@@ -1,6 +1,5 @@
 # внешняя библиотека MySQLdb (pip install MySQL-python)
 from MySQLdb import *
-import time
 
 """ Скрипт который выводит количество установок с 'даты-1'  по 'дату-2'"""
 
@@ -43,5 +42,3 @@ print("Количество записей - " + str(len(result)))
 print("Результат:")
 for row in result:
     print(row)
-
-time.sleep(520)

@@ -26,12 +26,20 @@
     </form>
 
 
-    <button>Stop script</button>
-    <button>Delete script</button>
-    <button>Read log</button>
+    <form action="/stop/" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="post_id" value="{{ post.pk }}">
+        <button>Stop script</button>
+    </form>
 
+    <button>Delete script</button>
 
     <pre><code class="python">{{ script_text }}</code></pre>
+
+
+    {% for log in script_logs %}
+        <a href="/media/logs/{{ post.author }}/{{ log }}">{{ log }}</a><br>
+    {% endfor %}
 </div>
 </body>
 </html>

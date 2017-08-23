@@ -1,7 +1,7 @@
 import json
 # внешняя библиотека MySQLdb (pip install MySQL-python)
 from MySQLdb import *
-import time
+
 """ Скрипт который выводит количесвто игроков, зашедших в игру после установки игры днем ранее и прошли туториал"""
 
 
@@ -60,5 +60,5 @@ for installation in installations:
 
 print("Количество игроков, прошедшие Tutorial07.04 - " + str(count))
 
-time.sleep(360)
+
 
