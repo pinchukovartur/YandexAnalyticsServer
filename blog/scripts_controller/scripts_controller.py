@@ -8,6 +8,7 @@ import psutil
 
 CONFIG_PATH = os.path.dirname(__file__) + "/xml_data/"
 
+
 # метод запускающий скрипт
 def run_script(script_name, script_type, auth_script, script_path, start_date_script):
     # записываем в конфиг данные скрипта
@@ -17,7 +18,7 @@ def run_script(script_name, script_type, auth_script, script_path, start_date_sc
     # проверяем тип скрипта
     if script_type == "SINGLE":
         # если скрипт активый кидаем ерор
-        if get_script_status(auth_script, script_name, CONFIG_PATH + config_name):
+        if get_script_status(auth_script, script_name):
             raise NameError("ERROR!!! одна копия скрипта уже запущена")
         else:
             __run_script(script_name, auth_script, script_path, CONFIG_PATH, config_name, script_type,
@@ -61,14 +62,14 @@ def __check_folder(directory):
         os.makedirs(directory)
 
 
-def get_script_status(username, script_name, config_path):
+def get_script_status(username, script_name):
     # обновляем файл конфигов, 3 раза дабы точно убедиться)))
-    __delete_old_script_in_xml(config_path)
-    __delete_old_script_in_xml(config_path)
-    __delete_old_script_in_xml(config_path)
+    __delete_old_script_in_xml(CONFIG_PATH + username + ".xml")
+    __delete_old_script_in_xml(CONFIG_PATH + username + ".xml")
+    __delete_old_script_in_xml(CONFIG_PATH + username + ".xml")
 
     # проходим по всем скриптам в конфиге
-    tree = ET.parse(config_path)
+    tree = ET.parse(CONFIG_PATH + username + ".xml")
     # проходим по всем активным pid-ам
     i = 0
     for scripts in tree.iter():
@@ -116,7 +117,7 @@ def __run_script(script_name, auth_script, script_path, config_path, config_name
     # create path where save logs files
     log_path = os.path.dirname(__file__) + "/logs/" + auth_script + "/"
     # logs name
-    log_name = script_name + ".txt"
+    log_name = script_name.replace(" ", "") + ".txt"
     # check folder if exist create it
     __check_folder(log_path)
     # start process
@@ -127,6 +128,9 @@ def __run_script(script_name, auth_script, script_path, config_path, config_name
 
 
 def stop_scripts(username, script_name):
+    # проверяем есть ли уонфиг у польщователя
+    __check_file_exist(CONFIG_PATH + username + ".xml")
+
     # обновляем файл конфигов, 3 раза дабы точно убедиться)))
     __delete_old_script_in_xml(CONFIG_PATH + username + ".xml")
     __delete_old_script_in_xml(CONFIG_PATH + username + ".xml")

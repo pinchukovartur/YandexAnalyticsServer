@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*- 
 import json
 # внешняя библиотека MySQLdb (pip install MySQL-python)
 from MySQLdb import *

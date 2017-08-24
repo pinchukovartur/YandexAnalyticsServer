@@ -4,6 +4,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Title</title>
 
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/ocean.min.css"/>
@@ -11,35 +14,96 @@
 </head>
 <body>
 <div class="post">
-    {% if post.published_date %}
-        <div class="date">
-            {{ post.published_date }}
-        </div>
-    {% endif %}
-    <h1>{{ post.title }}</h1>
-    <p>{{ post.text|linebreaksbr }}</p>
-
-    <form action="/start/" method="post">
-        {% csrf_token %}
-        <input type="hidden" name="post_id" value="{{ post.pk }}">
-        <button>Start script</button>
-    </form>
-
-
-    <form action="/stop/" method="post">
-        {% csrf_token %}
-        <input type="hidden" name="post_id" value="{{ post.pk }}">
-        <button>Stop script</button>
-    </form>
-
-    <button>Delete script</button>
-
-    <pre><code class="python">{{ script_text }}</code></pre>
-
+    <div class="container" style="margin: 0; width: 20%">
+        <h1>Scripts Table</h1>
+        <table class="table">
+            <tr>
+                <th><h4>Title</h4></th>
+                <th><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></th>
+            </tr>
+            <tr>
+                <th><h4>Author</h4></th>
+                <th>{{ post.author }}</th>
+            </tr>
+            <tr>
+                <th><h4>Publish data</h4></th>
+                <th>{{ post.published_date }}</th>
+            </tr>
+            <tr>
+                <th><h4>Active status</h4></th>
+                <th>{{ status }}</th>
+            </tr>
+            <tr>
+                <th>
+                    <form action="/start/" method="post">
+                    {% csrf_token %}
+                         <input type="hidden" name="post_id" value="{{ post.pk }}">
+                         <button>Start script</button>
+                    </form>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <form action="/stop/" method="post">
+                    {% csrf_token %}
+                        <input type="hidden" name="post_id" value="{{ post.pk }}">
+                        <button>Stop script</button>
+                     </form>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <form action="/delete/" method="post">
+                    {% csrf_token %}
+                        <input type="hidden" name="post_id" value="{{ post.pk }}">
+                        <button>Delete script</button>
+                    </form>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <form action="/update/">
+                        <input type="hidden" name="post_id" value="{{ post.pk }}">
+                        <button>Update script</button>
+                    </form>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Show code</button>
+                </th>
+            </tr>
+        </table>
+    </div>
+    <br>
 
     {% for log in script_logs %}
         <a href="/media/logs/{{ post.author }}/{{ log }}">{{ log }}</a><br>
     {% endfor %}
 </div>
+
+
+<div id="id01" class="modal">
+    <div class="imgcontainer">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close"
+              title="Close Modal">&times;</span>
+    </div>
+
+    <div class="container">
+        <pre><code class="python">{{ script_text }}</code></pre>
+    </div>
+</div>
+<script>
+    // Get the modal
+    var modal = document.getElementById('id01');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
 </body>
 </html>

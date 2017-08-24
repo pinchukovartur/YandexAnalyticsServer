@@ -2,7 +2,6 @@
 <html>
 <head>
     <title>Django blog</title>
-    <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="{% static 'css/main_window.css' %}">
@@ -13,29 +12,77 @@
     <h1><a href="/">Django Monitor Service</a></h1>
     <ui>
         {% if username %}
-        <li><a href="/auth/logout/">"Выйти ({{ username }})"</a></li>
+        <li><a href="/auth/logout/">"Logout ({{ username }})"</a></li>
         {% else %}
-        <li><a href="/auth/login/">"Войти"</a></li>
+        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+<div id="id01" class="modal">
+    <form class="modal-content animate" action="/auth/login/" method="post">
+        <div class="imgcontainer">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        </div>
+
+        <div class="container">
+            {% csrf_token %}
+            <label><b>Username</b></label>
+            {% if login_error %}
+                <label class="error">{{ login_error }}</label>
+            {% endif %}
+            <input type="text" placeholder="Enter Username" name="username" required>
+
+            <label><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" required>
+
+            <button type="submit">Login</button>
+        </div>
+    </form>
+</div>
         {% endif %}
     </ui>
 </div>
+
+
 {% if posts %}
-<div class="content container">
-    <div class="row">
-        <div class="col-md-8">
+    <div class="container">
+        <h1>Scripts Table</h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Publish date</th>
+                <th>Description</th>
+                <th>Script File</th>
+            </tr>
+            </thead>
+            <tbody>
             {% for post in posts %}
-                <div class="post">
-                    <div class="date">
-                        {{ post.published_date }}
-                    </div>
-                    <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-                    <p>{{ post.text|linebreaksbr }}</p>
-                    <a href="/media/{{ post.script }}">Script</a>
-                </div>
+                <tr>
+                    <th><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></th>
+                    <th>{{ post.author }}</th>
+                    <th>{{ post.published_date }}</th>
+                    <th>{{ post.text|linebreaksbr }}</th>
+                    <th><a href="/media/{{ post.script }}">{{ post.script }}</a></th>
+                </tr>
             {% endfor %}
-        </div>
+            </tbody>
+        </table>
     </div>
-</div>
 {% endif %}
+
+
+
+
+<script>
+    // Get the modal
+    var modal = document.getElementById('id01');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
 </body>
 </html>

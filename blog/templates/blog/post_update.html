@@ -11,14 +11,15 @@
 <body>
 
 <div style="width: 30%; margin-left: 30%; margin-top: 8%">
-    <h1>New script</h1>
-<form method="post" class="post-form" enctype="multipart/form-data" action="/upload/">
+    <h1>Update "{{ post.pk }}" script</h1>
+    <form method="post" class="post-form" enctype="multipart/form-data" action="/update/">
 
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="save btn btn-default">Save</button>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="hidden" name="post_id" value="{{ post.pk }}">
+        <button type="submit" class="save btn btn-default">Save</button>
 
-</form>
+    </form>
 </div>
 </body>
 </html>
