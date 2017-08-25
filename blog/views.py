@@ -1,6 +1,7 @@
 import os
 from datetime import datetime
 
+import psutil
 from django.contrib import auth
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
@@ -12,8 +13,12 @@ from .forms import PostForm
 from .models import Post
 from .scripts_controller.scripts_controller import run_script, stop_scripts, get_script_status
 
+# статус, когда запускается скрипт обновления БД
+DOWNLOAD_STATUS = False
+
 
 def post_list(request):
+
     if request.user.is_authenticated():
         posts = Post.objects.filter()
         # если это не админ, то отдаем только пользовательские скрипты
@@ -44,8 +49,9 @@ def post_new(request):
 
 
 def post_detail(request, pk):
-    post = get_object_or_404(Post, pk=pk)
 
+    post = get_object_or_404(Post, pk=pk)
+    status = get_script_status(str(post.author), str(post.title))
     if str(post.author) != str(auth.get_user(request).username) and auth.get_user(request).is_superuser is False:
         raise NameError("Ошибка доступа!!!")
     script_text = ""
@@ -57,35 +63,40 @@ def post_detail(request, pk):
         f.close()
 
     # if folder with user log not exist create her
-    if not os.path.isdir(os.path.dirname(__file__) + "\\scripts_controller\\logs\\" + str(post.author) + "\\"):
-        os.mkdir(os.path.dirname(__file__) + "\\scripts_controller\\logs\\" + str(post.author))
+    if not os.path.isdir(os.path.dirname(__file__) + "/scripts_controller/logs/" + str(post.author) + "/"):
+        os.mkdir(os.path.dirname(__file__) + "/scripts_controller/logs/" + str(post.author))
 
-    list_logs = os.listdir(os.path.dirname(__file__) + "\\scripts_controller\\logs\\" + str(post.author) + "\\")
+    list_logs = os.listdir(os.path.dirname(__file__) + "/scripts_controller/logs/" + str(post.author) + "/")
 
     script_logs = list()
     for log in list_logs:
         if log.endswith(str(post.title).replace(" ", "") + ".txt"):
             script_logs.append(log)
 
-    status = get_script_status(str(post.author), str(post.title))
+
+
 
     return render(request, 'blog/post_detail.html',
                   {'post': post, "script_text": script_text, "script_logs": script_logs, "status": status})
 
 
 def post_start(request):
-    post = get_object_or_404(Post, pk=request.POST.get('post_id', ''))
+    if not DOWNLOAD_STATUS:
+        post = get_object_or_404(Post, pk=request.POST.get('post_id', ''))
 
-    if str(post.author) != str(auth.get_user(request).username):
-        raise NameError("Ошибка доступа!!!")
+        if str(post.author) != str(auth.get_user(request).username) and auth.get_user(request).is_superuser is False:
+            raise NameError("Ошибка доступа!!!")
 
-    if str(post.script) != "":
-        module_dir = os.path.dirname(__file__) + "/scripts_controller/"
-        file_path = os.path.join(module_dir, str(post.script))
+        if str(post.script) != "":
+            module_dir = os.path.dirname(__file__) + "/scripts_controller/"
+            file_path = os.path.join(module_dir, str(post.script))
+            print(str(post.title), str(post.type), str(post.author), file_path, str(datetime.today()))
+            run_script(str(post.title), str(post.type), str(post.author), file_path, str(datetime.today()))
 
-        run_script(str(post.title), str(post.type), str(post.author), file_path, str(datetime.today()))
-
-    return redirect('post_detail', request.POST.get('post_id', ''))
+        return redirect('post_detail', request.POST.get('post_id', ''))
+    else:
+        return HttpResponse("Sorry! but the database is scheduled to be updated, we can not run a new script. Please "
+                            "wait...")
 
 
 def model_form_upload(request):
@@ -148,15 +159,39 @@ def post_update(request):
         return render(request, 'blog/post_update.html', {"form": form, "post": post})
 
 
-def post_start_insert_in_db(request):
-    print("hello")
-    script_code = ""
-    if script_code == 'start_download':
-        pass
-        # check_script_status()
-        # stop_start_new_script()
-    elif script_code == "download_ok":
-        pass
-        # activate_start_new_script()
+def post_start_insert_in_db(request, status_code):
+    script_code = status_code
+    global DOWNLOAD_STATUS
+    if str(script_code) == 'start':
+        DOWNLOAD_STATUS = True
+        if __check_run_script():
+            return HttpResponse("you can not download")
+        else:
+            return HttpResponse("you can download")
+    elif script_code == "ok":
+        DOWNLOAD_STATUS = False
+        return HttpResponse("okay")
     else:
-        return HttpResponse("return this string")
+        return HttpResponse("understand script_code")
+
+
+# метод проверят есть ли хоть один активный скрипт в даный момент
+def __check_run_script():
+    posts = Post.objects.filter()
+    for post in posts:
+        if get_script_status(str(post.author), str(post.title)):
+            return True
+    return False
+
+
+def get_cpu_info(request):
+    return HttpResponse(psutil.cpu_percent(interval=1))
+
+
+def get_memory_info(request):
+    print(psutil.swap_memory())
+    return HttpResponse(psutil.virtual_memory().percent)
+
+
+def get_disk_info(request):
+    return HttpResponse(psutil.disk_usage('/').percent)

@@ -11,6 +11,7 @@ CONFIG_PATH = os.path.dirname(__file__) + "/xml_data/"
 
 # метод запускающий скрипт
 def run_script(script_name, script_type, auth_script, script_path, start_date_script):
+
     # записываем в конфиг данные скрипта
     config_name = auth_script + ".xml"
     __check_file_exist(CONFIG_PATH + config_name)
@@ -63,6 +64,8 @@ def __check_folder(directory):
 
 
 def get_script_status(username, script_name):
+    __check_file_exist(CONFIG_PATH + username + ".xml")
+
     # обновляем файл конфигов, 3 раза дабы точно убедиться)))
     __delete_old_script_in_xml(CONFIG_PATH + username + ".xml")
     __delete_old_script_in_xml(CONFIG_PATH + username + ".xml")
@@ -104,13 +107,15 @@ def __delete_old_script_in_xml(config_path):
                     if subelem.tag == "PID":
                         # bypass on active pids
                         for process in psutil.process_iter():
-                            if str(subelem.text) == str(process.pid) and str(process.name()) == "cmd.exe":
+
+                            if str(subelem.text) == str(process.pid):
                                 state_script = True
                 # if script was not find delete him
                 if not state_script:
                     scripts.remove(script)
                 state_script = False
     tree.write(config_path)
+
 
 
 def __run_script(script_name, auth_script, script_path, config_path, config_name, script_type, start_date_script):
@@ -124,6 +129,7 @@ def __run_script(script_name, auth_script, script_path, config_path, config_name
     p = Popen("python " + script_path + ">" + log_path + str(
         datetime.datetime.strftime(datetime.datetime.now(), "%Y.%m.%d_%H_%M_%S_")) + log_name, shell=True)
     # add info in xml file with meta data
+    print(str(p.pid))
     _add_script_in_xml(config_path + config_name, script_name, script_type, start_date_script, auth_script, str(p.pid))
 
 
@@ -154,8 +160,13 @@ def stop_scripts(username, script_name):
                         i = i + 1
                     if i > 2 and pid > -1:
                         # УБИВАЕМ ПРОЦЕСС И ЕГО ДЕТЕЙ!!! УХАХААХАХАХАХ насильственно !)
-                        Popen('taskkill /f /PID ' + str(pid) + " /T", shell=True)
-                    print(subelem.text)
+                        for proc in psutil.process_iter():
+                            if proc.pid == int(pid):
+                                print(pid)
+                                print(proc.children())
+
+                                proc.kill()
+
                 i = 0
 
     # обновляем файл конфигов, 3 раза дабы точно убедиться)))

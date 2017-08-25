@@ -4,6 +4,9 @@
     <title>Django blog</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="{% static 'css/main_window.css' %}">
 </head>
 <body>
@@ -38,6 +41,77 @@
 </div>
         {% endif %}
     </ui>
+</div>
+
+
+<div>
+
+    <div class="container">
+        <h2>Progress Bars</h2>
+        <p>The contextual classes colors the progress bars:</p>
+        <div class="progress">
+            <div id="cpu"></div>
+        </div>
+        <div class="progress">
+            <div id="memory"></div>
+        </div>
+        <div class="progress">
+            <div id="disk"></div>
+        </div>
+    </div>
+
+    {% comment %}<div id="content"></div>{% endcomment %}
+
+    <script>
+        function show_cpu() {
+            $.ajax({
+                url: "/cpu/",
+                cache: false,
+                success: function (html) {
+                    $("#cpu").html('<div class="progress-bar progress-bar-success" role="progressbar" ' +
+                                        'aria-valuenow="40" aria-valuemin="0"\n' +
+                                            'aria-valuemax="100" style="width: '+html+'%">CPU('+html+')</div>')
+                }
+            });
+        }
+        function show_memory() {
+            $.ajax({
+                url: "/memory/",
+                cache: false,
+                success: function (html) {
+                    $("#memory").html('<div class="progress-bar progress-bar-info" role="progressbar" ' +
+                                        'aria-valuenow="40" aria-valuemin="0"\n' +
+                                            'aria-valuemax="100" style="width: '+html+'%">memory('+html+')</div>')
+                }
+            });
+        }
+
+        function show_disk() {
+            $.ajax({
+                url: "/disk/",
+                cache: false,
+                success: function (html) {
+                    $("#disk").html('<div class="progress-bar progress-bar-warning" role="progressbar" ' +
+                                        'aria-valuenow="40" aria-valuemin="0"\n' +
+                                            'aria-valuemax="100" style="width: '+html+'%">disk('+html+')</div>')
+                }
+            });
+        }
+
+
+        $(document).ready(function () {
+            setInterval('show_cpu()', 1000);
+            setInterval('show_memory()', 1000);
+            setInterval('show_disk()', 1000);
+        });
+    </script>
+
+
+    <script>
+
+
+    </script>
+
 </div>
 
 
