@@ -9,12 +9,14 @@
 
 </head>
 <body>
+<a href="/" style="margin: 1%; color:black"><-- Return</a>
 
 <div style="width: 30%; margin-left: 30%; margin-top: 8%">
     <h1>New script</h1>
 <form method="post" class="post-form" enctype="multipart/form-data" action="/upload/">
 
     {% csrf_token %}
+    <h3 style="color:red;">{{ name_error }}</h3>
     {{ form.as_p }}
     <button type="submit" class="save btn btn-default">Save</button>
 

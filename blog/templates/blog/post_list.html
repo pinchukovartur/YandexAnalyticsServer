@@ -11,14 +11,17 @@
 </head>
 <body>
 <div class="page-header">
-    <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+    {% if username %}
+    <a href="{% url 'model_form_upload' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+    {% endif %}
     <h1><a href="/">Django Monitor Service</a></h1>
+    <h3 style="color: #f44336">{{ login_error }}</h3>
     <ui>
         {% if username %}
         <li><a href="/auth/logout/">"Logout ({{ username }})"</a></li>
         {% else %}
         <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
-<div id="id01" class="modal">
+    <div id="id01" class="modal">
     <form class="modal-content animate" action="/auth/login/" method="post">
         <div class="imgcontainer">
             <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
@@ -60,8 +63,6 @@
         </div>
     </div>
 
-    {% comment %}<div id="content"></div>{% endcomment %}
-
     <script>
         function show_cpu() {
             $.ajax({
@@ -100,9 +101,9 @@
 
 
         $(document).ready(function () {
-            setInterval('show_cpu()', 1000);
-            setInterval('show_memory()', 1000);
-            setInterval('show_disk()', 1000);
+            setInterval('show_cpu()', 10000);
+            setInterval('show_memory()', 10000);
+            setInterval('show_disk()', 10000);
         });
     </script>
 

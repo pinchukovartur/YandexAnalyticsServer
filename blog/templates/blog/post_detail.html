@@ -17,6 +17,8 @@
 <body>
 <div class="post">
 
+    <a href="/" style="margin: 1%; color:black"><-- Return</a>
+
     <div class="container" style="margin: 0; width: 20%">
         <h1>Scripts Table</h1>
         <table class="table">
@@ -29,7 +31,7 @@
                 <th>{{ post.author }}</th>
             </tr>
             <tr>
-                <th><h4>Publish data</h4></th>
+                <th><h4>Publication date</h4></th>
                 <th>{{ post.published_date }}</th>
             </tr>
             <tr>
@@ -37,11 +39,19 @@
                 <th>{{ status }}</th>
             </tr>
             <tr>
+                <th><h4>Type</h4></th>
+                <th>{{ post.type }}</th>
+            </tr>
+            <tr>
                 <th>
                     <form action="/start/" method="post">
                     {% csrf_token %}
                          <input type="hidden" name="post_id" value="{{ post.pk }}">
+                        {% if status == True and post.type == "SINGLE" %}
+                         <button disabled style="color: yellow">Start script</button>
+                        {% else %}
                          <button>Start script</button>
+                        {% endif %}
                     </form>
                 </th>
             </tr>
@@ -86,7 +96,7 @@
 </div>
 
 
-<div id="id01" class="modal">
+<div id="id01" class="modal" style="overflow: scroll">
     <div class="imgcontainer">
         <span onclick="document.getElementById('id01').style.display='none'" class="close"
               title="Close Modal">&times;</span>

@@ -6,12 +6,12 @@ from subprocess import Popen
 # install libs
 import psutil
 
+# config file location
 CONFIG_PATH = os.path.dirname(__file__) + "/xml_data/"
 
 
 # метод запускающий скрипт
 def run_script(script_name, script_type, auth_script, script_path, start_date_script):
-
     # записываем в конфиг данные скрипта
     config_name = auth_script + ".xml"
     __check_file_exist(CONFIG_PATH + config_name)
@@ -107,8 +107,10 @@ def __delete_old_script_in_xml(config_path):
                     if subelem.tag == "PID":
                         # bypass on active pids
                         for process in psutil.process_iter():
-
-                            if str(subelem.text) == str(process.pid):
+                            # if script is zombie delete him
+                            if str(subelem.text) == str(process.pid) and str(process.status()) == "zombie":
+                                state_script = False
+                            elif str(subelem.text) == str(process.pid):
                                 state_script = True
                 # if script was not find delete him
                 if not state_script:
@@ -117,24 +119,27 @@ def __delete_old_script_in_xml(config_path):
     tree.write(config_path)
 
 
-
+# the method create new process
 def __run_script(script_name, auth_script, script_path, config_path, config_name, script_type, start_date_script):
     # create path where save logs files
     log_path = os.path.dirname(__file__) + "/logs/" + auth_script + "/"
     # logs name
-    log_name = script_name.replace(" ", "") + ".txt"
+    log_name = "\(" + script_name.replace(" ", "") + "\).txt"
+    print(log_name)
     # check folder if exist create it
     __check_folder(log_path)
+    print("python " + script_path + ">" + log_path + str(
+        datetime.datetime.strftime(datetime.datetime.now(), "%Y.%m.%d_%H_%M_%S_")) + log_name)
     # start process
     p = Popen("python " + script_path + ">" + log_path + str(
         datetime.datetime.strftime(datetime.datetime.now(), "%Y.%m.%d_%H_%M_%S_")) + log_name, shell=True)
     # add info in xml file with meta data
-    print(str(p.pid))
     _add_script_in_xml(config_path + config_name, script_name, script_type, start_date_script, auth_script, str(p.pid))
 
 
+# the method stops script
 def stop_scripts(username, script_name):
-    # проверяем есть ли уонфиг у польщователя
+    # проверяем есть ли конфиг у пользователя
     __check_file_exist(CONFIG_PATH + username + ".xml")
 
     # обновляем файл конфигов, 3 раза дабы точно убедиться)))
@@ -144,7 +149,6 @@ def stop_scripts(username, script_name):
 
     # проходим по всем скриптам в конфиге
     tree = ET.parse(CONFIG_PATH + username + ".xml")
-    # проходим по всем активным pid-ам
     i = 0
     pid = -1
     for scripts in tree.iter():
@@ -162,11 +166,7 @@ def stop_scripts(username, script_name):
                         # УБИВАЕМ ПРОЦЕСС И ЕГО ДЕТЕЙ!!! УХАХААХАХАХАХ насильственно !)
                         for proc in psutil.process_iter():
                             if proc.pid == int(pid):
-                                print(pid)
-                                print(proc.children())
-
                                 proc.kill()
-
                 i = 0
 
     # обновляем файл конфигов, 3 раза дабы точно убедиться)))

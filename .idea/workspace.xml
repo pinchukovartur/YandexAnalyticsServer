@@ -2,38 +2,84 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72e61c03-221a-44a1-92ac-98823f231503" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.24_14_25_58_FirsScript.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/scripts/passed_tutorial.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/scripts/passed_tutorial_W7BqSaQ.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/scripts/passed_tutorial_oQw27jz.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/scripts/post_request.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/scripts/retention_one_day.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/scripts/retention_one_day_NTNUdqI.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/scripts/retention_one_day_ntHjbFf.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/scripts/retention_one_day_nuamtyg.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/scripts/retention_one_day_zp0dwSJ.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/xml_data/admin.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_17_43_25_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_17_46_02_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_18_04_59_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_18_07_11_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_18_08_30_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_18_09_47_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_18_12_33_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_18_12_34_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_18_15_52_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_18_16_24_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_18_21_06_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_18_21_29_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_18_23_07_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_18_23_08_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_18_24_29_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_18_25_36_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_18_25_41_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_18_26_39_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_18_26_54_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_18_26_55_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_18_27_44_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_18_28_15_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_18_29_05_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_18_30_21_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_18_34_45_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_18_34_59_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_18_36_20_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_18_40_32_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_18_45_55_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_18_52_56_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_18_56_58_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_19_19_01_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_19_21_02_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_19_22_45_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_19_31_03_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_19_31_56_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_19_32_29_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_19_33_30_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_19_33_53_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_19_34_20_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_19_35_21_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/logs/admin/2017.08.25_19_36_24_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/scripts_controller/scripts/number_of_installations.py" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/YandexAnalytics" afterPath="$PROJECT_DIR$/YandexAnalytics" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Django_Lib.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Django_Lib.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/web-post.iml" afterPath="$PROJECT_DIR$/.idea/web-post.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blog/forms.py" afterPath="$PROJECT_DIR$/blog/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blog/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/blog/migrations/0001_initial.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/YandexAnalytics/.idea/YandexAnalytics.iml" afterPath="$PROJECT_DIR$/YandexAnalytics/.idea/YandexAnalytics.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/YandexAnalytics/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/YandexAnalytics/.idea/dataSources.local.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/YandexAnalytics/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/YandexAnalytics/.idea/dataSources.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/YandexAnalytics/.idea/dataSources/992c2023-3162-45a6-939e-873cbce77f83.xml" afterPath="$PROJECT_DIR$/YandexAnalytics/.idea/dataSources/992c2023-3162-45a6-939e-873cbce77f83.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/YandexAnalytics/.idea/misc.xml" afterPath="$PROJECT_DIR$/YandexAnalytics/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/YandexAnalytics/.idea/modules.xml" afterPath="$PROJECT_DIR$/YandexAnalytics/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/YandexAnalytics/.idea/vcs.xml" afterPath="$PROJECT_DIR$/YandexAnalytics/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/YandexAnalytics/.idea/workspace.xml" afterPath="$PROJECT_DIR$/YandexAnalytics/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/YandexAnalytics/analytics_сontroller.py" afterPath="$PROJECT_DIR$/YandexAnalytics/analytics_сontroller.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/YandexAnalytics/create_bd.sql" afterPath="$PROJECT_DIR$/YandexAnalytics/create_bd.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/YandexAnalytics/examples_work_with_mysql/number_of_installations.py" afterPath="$PROJECT_DIR$/YandexAnalytics/examples_work_with_mysql/number_of_installations.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/YandexAnalytics/examples_work_with_mysql/passed_tutorial.py" afterPath="$PROJECT_DIR$/YandexAnalytics/examples_work_with_mysql/passed_tutorial.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/YandexAnalytics/examples_work_with_mysql/retention_one_day.py" afterPath="$PROJECT_DIR$/YandexAnalytics/examples_work_with_mysql/retention_one_day.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/YandexAnalytics/get_yandex_installations.py" afterPath="$PROJECT_DIR$/YandexAnalytics/get_yandex_installations.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/YandexAnalytics/script.sql" afterPath="$PROJECT_DIR$/YandexAnalytics/script.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/YandexAnalytics/scripts/dao/analytics_dao.py" afterPath="$PROJECT_DIR$/YandexAnalytics/scripts/dao/analytics_dao.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/YandexAnalytics/scripts/services/json_service.py" afterPath="$PROJECT_DIR$/YandexAnalytics/scripts/services/json_service.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/YandexAnalytics/scripts/services/xml_service.py" afterPath="$PROJECT_DIR$/YandexAnalytics/scripts/services/xml_service.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/YandexAnalytics/scripts/utils/console_utils.py" afterPath="$PROJECT_DIR$/YandexAnalytics/scripts/utils/console_utils.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blog/scripts_controller/scripts_controller.py" afterPath="$PROJECT_DIR$/blog/scripts_controller/scripts_controller.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blog/static/css/main_window.css" afterPath="$PROJECT_DIR$/blog/static/css/main_window.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blog/scripts_controller/xml_data/admin.xml" afterPath="$PROJECT_DIR$/blog/scripts_controller/xml_data/admin.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blog/templates/blog/post_detail.html" afterPath="$PROJECT_DIR$/blog/templates/blog/post_detail.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blog/templates/blog/post_edit.html" afterPath="$PROJECT_DIR$/blog/templates/blog/post_edit.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blog/templates/blog/post_list.html" afterPath="$PROJECT_DIR$/blog/templates/blog/post_list.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blog/templates/blog/post_update.html" afterPath="$PROJECT_DIR$/blog/templates/blog/post_update.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blog/urls.py" afterPath="$PROJECT_DIR$/blog/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blog/views.py" afterPath="$PROJECT_DIR$/blog/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginsys/admin.py" afterPath="$PROJECT_DIR$/loginsys/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginsys/apps.py" afterPath="$PROJECT_DIR$/loginsys/apps.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginsys/models.py" afterPath="$PROJECT_DIR$/loginsys/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginsys/tests.py" afterPath="$PROJECT_DIR$/loginsys/tests.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginsys/urls.py" afterPath="$PROJECT_DIR$/loginsys/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginsys/views.py" afterPath="$PROJECT_DIR$/loginsys/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysite/settings.py" afterPath="$PROJECT_DIR$/mysite/settings.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -44,6 +90,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/web_post$xml_service.coverage" NAME="xml_service Coverage Results" MODIFIED="1503406646510" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/blog/scripts_controller" />
+    <SUITE FILE_PATH="coverage/web_post$get_yandex_installations.coverage" NAME="get_yandex_installations Coverage Results" MODIFIED="1503931765110" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/YandexAnalytics" />
     <SUITE FILE_PATH="coverage/web_post$Test__blog_scripts_controller_xml_data_admin_xml.coverage" NAME="Test: blog.scripts_controller.xml_data.admin.xml Coverage Results" MODIFIED="1503484868686" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/web_post$scripts_controller.coverage" NAME="scripts_controller Coverage Results" MODIFIED="1503675485663" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/blog/scripts_controller" />
   </component>
@@ -52,69 +99,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/blog/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="53" column="4" lean-forward="false" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="4" />
+            <state relative-caret-position="300">
+              <caret line="59" column="26" lean-forward="false" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
+                <element signature="e#8780#8831#0" expanded="false" />
+                <element signature="e#8866#8918#0" expanded="false" />
+                <element signature="e#8951#9002#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/blog/scripts_controller/xml_data/admin.xml">
+      <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/blog/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="160" lean-forward="true" selection-start-line="0" selection-start-column="160" selection-end-line="0" selection-end-column="160" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/blog/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="19" column="25" lean-forward="false" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="number_of_installations.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/blog/scripts_controller/scripts/number_of_installations.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-148">
-              <caret line="11" column="28" lean-forward="true" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+            <state relative-caret-position="120">
+              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding>
-                <marker date="1503673622372" expanded="true" signature="1101:1246" ph="SELECT * FRO... installations" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="scripts_controller.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/blog/scripts_controller/scripts_controller.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="165" column="54" lean-forward="false" selection-start-line="165" selection-start-column="54" selection-end-line="165" selection-end-column="54" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mysite/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
+                <element signature="e#0#24#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -123,29 +129,73 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/loginsys/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="10" column="51" lean-forward="false" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="51" />
+            <state relative-caret-position="240">
+              <caret line="16" column="35" lean-forward="false" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="scripts_controller.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/blog/scripts_controller/scripts_controller.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="211">
+              <caret line="126" column="55" lean-forward="false" selection-start-line="126" selection-start-column="55" selection-end-line="126" selection-end-column="55" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/loginsys/urls.py">
+      <file leaf-file-name="post_update.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/blog/templates/blog/post_update.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="6" column="12" lean-forward="false" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-              <folding />
+            <state relative-caret-position="330">
+              <caret line="22" column="11" lean-forward="true" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
+              <folding>
+                <element signature="n#style#0;n#a#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h3#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wsgi.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mysite/wsgi.py">
+      <file leaf-file-name="post_edit.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/blog/templates/blog/post_edit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="270">
+              <caret line="18" column="4" lean-forward="true" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="48" />
+              <folding>
+                <element signature="n#style#0;n#a#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h3#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="post_detail.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/blog/templates/blog/post_detail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="19" column="4" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="62" />
+              <folding>
+                <element signature="n#style#0;n#a#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#form#0;n#th#0;n#tr#5;n#table#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="post_list.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/blog/templates/blog/post_list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="19" column="25" lean-forward="true" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+              <folding>
+                <element signature="n#style#0;n#h3#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -166,6 +216,15 @@
       <find>red</find>
       <find>_add_script_in_xml</find>
       <find>print</find>
+      <find>tmp_folder_path</find>
+      <find>stat</find>
+      <find>admin.xyml</find>
+      <find>xyml</find>
+      <find>new</find>
+      <find>HttpResponseRedirect</find>
+      <find>return</find>
+      <find>render</find>
+      <find>request.POST.get(</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -175,7 +234,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/loginsys/urls.py" />
-        <option value="$PROJECT_DIR$/loginsys/views.py" />
         <option value="$PROJECT_DIR$/loginsys/templates/login.html" />
         <option value="$PROJECT_DIR$/blog/admin.py" />
         <option value="$PROJECT_DIR$/blog/scripts_controller/main_controller.py" />
@@ -192,18 +250,20 @@
         <option value="$PROJECT_DIR$/blog/forms.py" />
         <option value="$PROJECT_DIR$/blog/static/css/main_window.css" />
         <option value="$PROJECT_DIR$/blog/models.py" />
-        <option value="$PROJECT_DIR$/blog/templates/blog/post_edit.html" />
-        <option value="$PROJECT_DIR$/blog/templates/blog/post_update.html" />
         <option value="$PROJECT_DIR$/blog/scripts_controller/scripts/retention_one_day.py" />
-        <option value="$PROJECT_DIR$/blog/templates/blog/post_detail.html" />
-        <option value="$PROJECT_DIR$/blog/urls.py" />
-        <option value="$PROJECT_DIR$/blog/templates/blog/post_list.html" />
         <option value="$PROJECT_DIR$/mysite/urls.py" />
         <option value="$PROJECT_DIR$/blog/scripts_controller/scripts/passed_tutorial_pmhz3Fy.py" />
-        <option value="$PROJECT_DIR$/blog/scripts_controller/scripts/number_of_installations.py" />
-        <option value="$PROJECT_DIR$/blog/views.py" />
         <option value="$PROJECT_DIR$/blog/scripts_controller/xml_data/admin.xml" />
+        <option value="$PROJECT_DIR$/YandexAnalytics/get_yandex_installations.py" />
+        <option value="$PROJECT_DIR$/blog/urls.py" />
+        <option value="$PROJECT_DIR$/loginsys/views.py" />
+        <option value="$PROJECT_DIR$/blog/scripts_controller/scripts/number_of_installations.py" />
+        <option value="$PROJECT_DIR$/blog/templates/blog/post_detail.html" />
+        <option value="$PROJECT_DIR$/blog/templates/blog/post_edit.html" />
+        <option value="$PROJECT_DIR$/blog/templates/blog/post_list.html" />
+        <option value="$PROJECT_DIR$/blog/templates/blog/post_update.html" />
         <option value="$PROJECT_DIR$/blog/scripts_controller/scripts_controller.py" />
+        <option value="$PROJECT_DIR$/blog/views.py" />
       </list>
     </option>
   </component>
@@ -213,7 +273,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="width" value="1673" />
     <option name="height" value="948" />
   </component>
@@ -234,6 +294,7 @@
       </profile-state>
     </entry>
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -249,8 +310,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -273,25 +332,21 @@
               <item name="web-post" type="b2602c69:ProjectViewProjectNode" />
               <item name="web-post" type="462c0819:PsiDirectoryNode" />
               <item name="blog" type="462c0819:PsiDirectoryNode" />
-              <item name="scripts_controller" type="462c0819:PsiDirectoryNode" />
-              <item name="scripts" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="web-post" type="b2602c69:ProjectViewProjectNode" />
               <item name="web-post" type="462c0819:PsiDirectoryNode" />
               <item name="blog" type="462c0819:PsiDirectoryNode" />
-              <item name="scripts_controller" type="462c0819:PsiDirectoryNode" />
-              <item name="xml_data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-post" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-post" type="462c0819:PsiDirectoryNode" />
-              <item name="mysite" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="blog" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -322,7 +377,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.scripts_controller">
+  <component name="RunManager" selected="Python.get_yandex_installations">
     <configuration name="Test: blog.scripts_controller.xml_data.admin.xml" type="DjangoTestsConfigurationType" factoryName="Django tests" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -341,6 +396,24 @@
       <option name="CUSTOM_SETTINGS" value="false" />
       <option name="USE_OPTIONS" value="false" />
       <option name="OPTIONS" value="" />
+    </configuration>
+    <configuration name="get_yandex_installations" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/YandexAnalytics" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="web-post" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/YandexAnalytics/get_yandex_installations.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
     <configuration name="scripts_controller" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -400,17 +473,19 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <list size="4">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Django server.web-post" />
       <item index="1" class="java.lang.String" itemvalue="Python.xml_service" />
       <item index="2" class="java.lang.String" itemvalue="Python.scripts_controller" />
       <item index="3" class="java.lang.String" itemvalue="Django tests.Test: blog.scripts_controller.xml_data.admin.xml" />
+      <item index="4" class="java.lang.String" itemvalue="Python.get_yandex_installations" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Python.scripts_controller" />
-        <item index="1" class="java.lang.String" itemvalue="Django tests.Test: blog.scripts_controller.xml_data.admin.xml" />
-        <item index="2" class="java.lang.String" itemvalue="Python.xml_service" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Python.get_yandex_installations" />
+        <item index="1" class="java.lang.String" itemvalue="Python.scripts_controller" />
+        <item index="2" class="java.lang.String" itemvalue="Django tests.Test: blog.scripts_controller.xml_data.admin.xml" />
+        <item index="3" class="java.lang.String" itemvalue="Python.xml_service" />
       </list>
     </recent_temporary>
   </component>
@@ -436,20 +511,19 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1673" height="948" extended-state="0" />
-    <editor active="true" />
+    <frame x="-1" y="0" width="1922" height="948" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31876922" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3153682" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32394367" sideWeight="0.07782516" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38713592" sideWeight="0.112059765" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288835" sideWeight="0.48081023" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288835" sideWeight="0.88553846" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3907767" sideWeight="0.9221748" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997833" sideWeight="0.4914712" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38713592" sideWeight="0.8879402" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997833" sideWeight="0.4914712" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -477,16 +551,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/loginsys/apps.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loginsys/migrations/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/loginsys/static/login.css" />
-    <entry file="file://$PROJECT_DIR$/media/scripts/run_Rr519pA.py" />
     <entry file="file://$PROJECT_DIR$/media/scripts/run.py" />
     <entry file="file://$PROJECT_DIR$/blog/scripts_controller/runner.py" />
     <entry file="file://$PROJECT_DIR$/blog/scripts_controller/filename.xml" />
@@ -506,7 +570,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -536,59 +599,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blog/scripts_controller/scripts/retention_one_day.py" />
     <entry file="file://$PROJECT_DIR$/blog/tests.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/blog/scripts_controller/xml_data/artur.xml" />
-    <entry file="file://$PROJECT_DIR$/blog/templates/blog/post_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/templates/blog/post_edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="7" lean-forward="false" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/templates/blog/post_update.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="38" lean-forward="false" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/templates/blog/post_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-47">
-          <caret line="77" column="20" lean-forward="false" selection-start-line="77" selection-start-column="20" selection-end-line="77" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/manage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -596,9 +618,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="22" lean-forward="false" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -606,7 +625,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1545">
           <caret line="103" column="0" lean-forward="false" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -614,15 +632,65 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysite/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#41#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/scripts_controller/scripts/passed_tutorial_pmhz3Fy.py" />
+    <entry file="file://$PROJECT_DIR$/blog/scripts_controller/xml_data/test" />
+    <entry file="file://$PROJECT_DIR$/blog/scripts_controller/xml_data/test.xml" />
+    <entry file="file://$PROJECT_DIR$/blog/scripts_controller/xml_data/admin.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="11" lean-forward="false" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/loginsys/views.py">
+    <entry file="file://$PROJECT_DIR$/YandexAnalytics/analytics_сontroller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="10" column="51" lean-forward="false" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="51" />
+        <state relative-caret-position="120">
+          <caret line="9" column="20" lean-forward="false" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#43#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/YandexAnalytics/scripts/services/json_service.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#11#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/YandexAnalytics/scripts/services/xml_service.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/YandexAnalytics/get_yandex_installations.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#15#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -634,75 +702,111 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mysite/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/scripts_controller/scripts/passed_tutorial_pmhz3Fy.py" />
-    <entry file="file://$PROJECT_DIR$/blog/scripts_controller/xml_data/test">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="11" lean-forward="true" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/scripts_controller/xml_data/test.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="83" lean-forward="true" selection-start-line="0" selection-start-column="83" selection-end-line="0" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/blog/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="19" column="25" lean-forward="false" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="25" />
+        <state relative-caret-position="195">
+          <caret line="18" column="72" lean-forward="false" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="72" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blog/views.py">
+    <entry file="file://$PROJECT_DIR$/loginsys/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="53" column="4" lean-forward="false" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="4" />
+        <state relative-caret-position="240">
+          <caret line="16" column="35" lean-forward="false" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/blog/scripts_controller/scripts/number_of_installations.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-148">
-          <caret line="11" column="28" lean-forward="true" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/scripts_controller/scripts/retention_one_day.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
-            <marker date="1503673622372" expanded="true" signature="1101:1246" ph="SELECT * FRO... installations" />
+            <element signature="e#0#24#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blog/scripts_controller/xml_data/admin.xml">
+    <entry file="file://$PROJECT_DIR$/blog/templates/blog/post_detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="160" lean-forward="true" selection-start-line="0" selection-start-column="160" selection-end-line="0" selection-end-column="160" />
-          <folding />
+        <state relative-caret-position="195">
+          <caret line="19" column="4" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="62" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#form#0;n#th#0;n#tr#5;n#table#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/templates/blog/post_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="25" lean-forward="true" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+          <folding>
+            <element signature="n#style#0;n#h3#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/templates/blog/post_edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="4" lean-forward="true" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="48" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h3#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/templates/blog/post_update.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="11" lean-forward="true" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h3#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/blog/scripts_controller/scripts_controller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="165" column="54" lean-forward="false" selection-start-line="165" selection-start-column="54" selection-end-line="165" selection-end-column="54" />
+        <state relative-caret-position="211">
+          <caret line="126" column="55" lean-forward="false" selection-start-line="126" selection-start-column="55" selection-end-line="126" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="59" column="26" lean-forward="false" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#8780#8831#0" expanded="false" />
+            <element signature="e#8866#8918#0" expanded="false" />
+            <element signature="e#8951#9002#0" expanded="false" />
           </folding>
         </state>
       </provider>
