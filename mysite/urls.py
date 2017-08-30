@@ -7,3 +7,4 @@ urlpatterns = [
     url(r'', include('blog.urls')),
     url(r'^auth/', include('loginsys.urls')),
 ]
+

@@ -2,9 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Title</title>
-
-
+    <title>Information</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
@@ -20,7 +18,7 @@
     <a href="/" style="margin: 1%; color:black"><-- Return</a>
 
     <div class="container" style="margin: 0; width: 20%">
-        <h1>Scripts Table</h1>
+        <h1>Script Info</h1>
         <table class="table">
             <tr>
                 <th><h4>Title</h4></th>
@@ -60,7 +58,7 @@
                     <form action="/stop/" method="post">
                     {% csrf_token %}
                         <input type="hidden" name="post_id" value="{{ post.pk }}">
-                        <button>Stop script</button>
+                        <button>Stop all instance</button>
                      </form>
                 </th>
             </tr>
@@ -69,7 +67,7 @@
                     <form action="/delete/" method="post">
                     {% csrf_token %}
                         <input type="hidden" name="post_id" value="{{ post.pk }}">
-                        <button>Delete script</button>
+                        <button>Delete script from DB</button>
                     </form>
                 </th>
             </tr>

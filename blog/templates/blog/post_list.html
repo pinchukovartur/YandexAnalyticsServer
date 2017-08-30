@@ -1,7 +1,8 @@
 {% load staticfiles %}
 <html>
 <head>
-    <title>Django blog</title>
+    <title>All scripts</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -50,8 +51,7 @@
 <div>
 
     <div class="container">
-        <h2>Progress Bars</h2>
-        <p>The contextual classes colors the progress bars:</p>
+        <h2>Monitor load on the server</h2>
         <div class="progress">
             <div id="cpu"></div>
         </div>
@@ -101,7 +101,10 @@
 
 
         $(document).ready(function () {
-            setInterval('show_cpu()', 10000);
+            show_cpu()
+            show_memory()
+            show_disk()
+            setInterval('show_cpu()', 500);
             setInterval('show_memory()', 10000);
             setInterval('show_disk()', 10000);
         });
