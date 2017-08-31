@@ -3,6 +3,19 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Information</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+      integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+
+</script>
+
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
@@ -13,10 +26,32 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
+
 <div class="post">
 
-    <a href="/" style="margin: 1%; color:black"><-- Return</a>
-
+<div class="row" style="margin: 0">
+    <div class="col-sm-6">
+    <a href="/" class="glyphicon glyphicon-home" style="font-size: 200%; margin: 2%"></a>
+    </div>
+    <div class="col-sm-6">
+    <form action="/delete/" method="post" style="margin-left: 95%; margin-top: 1%">
+        {% csrf_token %}
+        <input type="hidden" name="post_id" value="{{ post.pk }}">
+        <button class="glyphicon glyphicon-remove" onclick="return confirmDelete();"></button>
+        <h6>delete</h6>
+    </form>
+        <script>
+            function confirmDelete() {
+        if (confirm("Are you sure you want to completely delete the script?")) {
+            return true;
+        } else {
+            return false;
+            }
+        }
+        </script>
+        </div>
+</div>
+<div class="row">
     <div class="container" style="margin: 0; width: 20%">
         <h1>Script Info</h1>
         <table class="table">
@@ -41,14 +76,18 @@
                 <th>{{ post.type }}</th>
             </tr>
             <tr>
+                <th><h4>Count instance</h4></th>
+                <th>{{ count_instance }}</th>
+            </tr>
+            <tr>
                 <th>
                     <form action="/start/" method="post">
                     {% csrf_token %}
                          <input type="hidden" name="post_id" value="{{ post.pk }}">
                         {% if status == True and post.type == "SINGLE" %}
-                         <button disabled style="color: yellow">Start script</button>
+                         <button disabled style="background-color: red; width: 120%">Start script</button>
                         {% else %}
-                         <button>Start script</button>
+                         <button style="width: 120%">Start script</button>
                         {% endif %}
                     </form>
                 </th>
@@ -57,31 +96,26 @@
                 <th>
                     <form action="/stop/" method="post">
                     {% csrf_token %}
-                        <input type="hidden" name="post_id" value="{{ post.pk }}">
-                        <button>Stop all instance</button>
+                         <input type="hidden" name="post_id" value="{{ post.pk }}">
+                        {% if status == False and post.type == "SINGLE" %}
+                         <button disabled style="background-color: red; width: 120%">Stop all instance</button>
+                        {% else %}
+                         <button style="width: 120%">Stop all instance</button>
+                        {% endif %}
                      </form>
-                </th>
-            </tr>
-            <tr>
-                <th>
-                    <form action="/delete/" method="post">
-                    {% csrf_token %}
-                        <input type="hidden" name="post_id" value="{{ post.pk }}">
-                        <button>Delete script from DB</button>
-                    </form>
                 </th>
             </tr>
             <tr>
                 <th>
                     <form action="/update/">
                         <input type="hidden" name="post_id" value="{{ post.pk }}">
-                        <button>Update script</button>
+                        <button style="width: 120%">Edit script</button>
                     </form>
                 </th>
             </tr>
             <tr>
                 <th>
-                    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Show code</button>
+                    <button onclick="document.getElementById('id01').style.display='block'" style="width: 120%;">Show code</button>
                 </th>
             </tr>
         </table>
@@ -92,7 +126,7 @@
         <a href="/media/logs/{{ post.author }}/{{ log }}">{{ log }}</a><br>
     {% endfor %}
 </div>
-
+</div>
 
 <div id="id01" class="modal" style="overflow: scroll">
     <div class="imgcontainer">

@@ -11,7 +11,7 @@ from django.utils import timezone
 
 from .forms import PostForm
 from .models import Post
-from .scripts_controller.scripts_controller import run_script, stop_scripts, get_script_status
+from .scripts_controller.scripts_controller import run_script, stop_scripts, get_script_status, get_count_script_instance
 
 # статус, когда запускается скрипт обновления БД
 DOWNLOAD_STATUS = False
@@ -57,11 +57,14 @@ def post_detail(request, pk):
     list_logs = os.listdir(os.path.dirname(__file__) + "/scripts_controller/logs/" + str(post.author) + "/")
     script_logs = list()
     for log in list_logs:
-        if log.endswith("("+str(post.title).replace(" ", "") + ").txt"):
+        if log.endswith("%"+str(post.title).replace(" ", "") + "%.txt"):
             script_logs.append(log)
+    # get count instance
+    count_instance = get_count_script_instance(str(post.author), str(post.title))
     # return response
     return render(request, 'blog/post_detail.html',
-                  {'post': post, "script_text": script_text, "script_logs": script_logs, "status": status})
+                  {'post': post, "script_text": script_text, "script_logs": script_logs, "status": status,
+                   "count_instance": count_instance})
 
 
 # the method run script
@@ -137,6 +140,11 @@ def post_delete(request):
             os.remove(script_dir)
         # delete from db
         post.delete()
+        # delete log files
+        list_logs = os.listdir(os.path.dirname(__file__) + "/scripts_controller/logs/" + str(post.author) + "/")
+        for log in list_logs:
+            if log.endswith("%" + str(post.title).replace(" ", "") + "%.txt"):
+                os.remove(os.path.dirname(__file__) + "/scripts_controller/logs/" + str(post.author) + "/" + log)
     return HttpResponseRedirect('/')
 
 
