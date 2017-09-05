@@ -26,7 +26,7 @@ try:
     TOKEN = "AQAAAAATpP0XAAR70vxUpgjrAkq_h3IGIcgKL-0"
     TIME_SLEEP = 10  # время между запросвми в яндекс для проверки о готовности пакета
     COUNT_PACK = 1000  # количесвто пакетов, на которые разбиваются данные
-    SERVER_HOST = "http://192.168.88.225:8080"
+    SERVER_HOST = "http://192.168.0.111:8080"
     # ДАННЫЕ
     # текущая дата
     today = datetime.datetime.today()
