@@ -2,12 +2,21 @@ import datetime
 import os
 import time
 
-from requests import *  # install lib
-
 from analytics_сontroller import AnalyticsController
+from requests import *  # install lib
 from scripts.dao.analytics_dao import AnalyticsDB
 
+# СТАТИЧЕСКИЕ ДАННЫЕ
+TOKEN = "AQAAAAATpP0XAAR70vxUpgjrAkq_h3IGIcgKL-0"
+TIME_SLEEP = 10  # время между запросвми в яндекс для проверки о готовности пакета
+COUNT_PACK = 1000  # количесвто пакетов, на которые разбиваются данные
+SERVER_HOST = "http://192.168.0.111:8080"
+DB_USER = "root"
+DB_PASSWORD = "root"
+DB_HOST = "127.0.0.1"
 
+
+# clear log file
 def clear_log():
     log_file = open(os.path.dirname(__file__) + "/log.txt", "w")
     log_file.close()
@@ -21,29 +30,49 @@ def write_log(log):
     log_file.write(log + "\n")
     log_file.close()
 
+
+# check already update
+def check_lock_file():
+    script_dir = os.path.dirname(__file__)
+    lock_name = "lock.txt"
+    if os.path.isfile(script_dir + lock_name):
+        print("ERROR!!! already update")
+        exit(1)
+    else:
+        f = open(script_dir + lock_name, "w")
+        f.write("start update - " + str(datetime.datetime.now()))
+        f.close()
+
+
+# delete lock file
+def delete_lock_file():
+    script_dir = os.path.dirname(__file__)
+    lock_name = "lock.txt"
+    if os.path.isfile(script_dir + lock_name):
+        os.remove(script_dir + lock_name)
+
+
 try:
-    # СТАТИЧЕСКИЕ ДАННЫЕ
-    TOKEN = "AQAAAAATpP0XAAR70vxUpgjrAkq_h3IGIcgKL-0"
-    TIME_SLEEP = 10  # время между запросвми в яндекс для проверки о готовности пакета
-    COUNT_PACK = 1000  # количесвто пакетов, на которые разбиваются данные
-    SERVER_HOST = "http://192.168.88.225:8080"
-    # ДАННЫЕ
-    # текущая дата
+    # check already update
+    check_lock_file()
+
+    # DATA
+    # the current date
     today = datetime.datetime.today()
-    # папка для хранения файлов
+    # folder for storing files
     tmp_folder_path = os.path.dirname(__file__) + "/tmp/"
-    # класс для работы с БД (лежит в папках scripts/dao)
-    analytics_db = AnalyticsDB("root", "root", "127.0.0.1")
-    # максимальные даты в таблицах, берется из БД
+    # class to work with the database (lies in the scripts / dao folders)
+    analytics_db = AnalyticsDB(DB_USER, DB_PASSWORD, DB_HOST)
+    # the maximum date in the tables is taken from the database
     last_download_events = datetime.datetime.strptime(analytics_db.get_max_event_datetime(), '%Y-%m-%d %H:%M:%S')
     last_download_errors = datetime.datetime.strptime(analytics_db.get_max_errors_datetime(), '%Y-%m-%d %H:%M:%S')
     last_download_installations = datetime.datetime.strptime(analytics_db.get_max_installation_datetime(),
                                                              '%Y-%m-%d %H:%M:%S')
     last_download_crashes = datetime.datetime.strptime(analytics_db.get_max_crashes_datetime(), '%Y-%m-%d %H:%M:%S')
-    # контролер для парсинга json файлов и отправка их в бд, методы приниают лист с путями до json файлов
+    # controller for parsing json files and sending them to the database, methods accept a sheet with paths to jsonfiles
     analytics_controller = AnalyticsController(analytics_db)
 
-    # метод спрашивает у сервиса разрешение на обновление
+    # the method asks the service for permission to update
     def get_root():
         try:
             p = get(SERVER_HOST + "/start_download/start")
@@ -57,15 +86,15 @@ try:
             write_log(str(e))
             exit(1)
 
-    # метод добавлет нолик в начало даты, если она меньше 10 т к яндекс не кушает дату с одним значением
+    # the method adds zeroes to the beginning of the date, if it is less than 10 tons to Yandex does not eat the date
+    # with one value
     def check_data(value):
         if int(value) < 10:
             return "0" + str(value)
         else:
             return str(value)
 
-
-    # выполняем запрос пока не получим хороший ответ
+    # we execute the request until we get a good answer
     def sen_request(request_str):
         while True:
             try:
@@ -79,18 +108,18 @@ try:
                 write_log(str(error))
             time.sleep(TIME_SLEEP)
 
-
+    # get list json files with data from yandex analytic
     def get_list_json_files(file_name, request_str):
         list_files_name = list()
         for i in range(COUNT_PACK):
             write_log("номер части пакета - " + str(i + 1) + " - " + str(file_name))
             response = sen_request(request_str + "&parts_count=" + str(COUNT_PACK)
                                    + "&part_number=" + str(i) + "&oauth_token=" + TOKEN)
-            # сохраняем в файл
+            # save to file
             f = open(tmp_folder_path + file_name + str(i) + ".json", "wb")
             f.write(response.text.encode(encoding='utf_8_sig', errors='strict'))
             f.close()
-            # добавляем путь до json файла в лист
+            # add the path to the json file in the sheet
             list_files_name.append(tmp_folder_path + "/" + file_name + str(i) + ".json")
 
         return list_files_name
@@ -99,7 +128,7 @@ try:
     clear_log()
 
     # get permission to download
-    get_root()
+    # get_root()
 
     DATA_START_EVENT = str(last_download_events.date()) + "%20" + check_data(
         last_download_events.hour) + "%3A" + check_data(last_download_events.minute) + "%3A" + check_data(
@@ -116,13 +145,13 @@ try:
     DATA_END = str(today.date()) + "%20" + check_data(today.hour) + "%3A" + check_data(today.minute) + "%3A" + check_data(
         today.second)
 
-    write_log("дата начала промежутка времени событий - " + str(last_download_events))
-    write_log("дата начала промежутка времени ошибок - " + str(last_download_errors))
-    write_log("дата начала промежутка времени установок - " + str(last_download_installations))
-    write_log("дата начала промежутка времени крэшев - " + str(last_download_crashes))
-    write_log("дата конца промежутка времени(общее)- " + str(today))
+    write_log("start date period of time events - " + str(last_download_events))
+    write_log("start date period of time errors - " + str(last_download_errors))
+    write_log("start date period of time installs - " + str(last_download_installations))
+    write_log("start date period of time crashes - " + str(last_download_crashes))
+    write_log("end-of-time date (total) - " + str(today))
 
-    # ЗАПРОСЫ В ЯНДЕКС
+    # REQUEST IN YANDEX
     request_installations = "https://api.appmetrica.yandex.ru/logs/v1/export/installations.json?application_id=176450" \
                             "" \
                             "&date_since=" + DATA_START_INSTALLATIONS + "&date_until=" + DATA_END + \
@@ -163,16 +192,18 @@ try:
                       "2Cevent_receive_datetime%2Cevent_receive_timestamp%2Cconnection_type%2Coperator_name%2Cmcc%2Cmnc%" \
                       "2Ccountry_iso_code%2Ccity%2Cappmetrica_device_id"
 
-    # отправляем лист контролеру для дальнейшего парсинга файлов и отправки в БД
+    # send the sheet to the controller for further parsing the files and sending them to the database
     analytics_controller.add_installations(get_list_json_files("installations", request_installations))
     analytics_controller.add_errors(get_list_json_files("errors", request_errors))
     analytics_controller.add_crashes(get_list_json_files("crashes", request_crashes))
     analytics_controller.add_events(get_list_json_files("events", request_events))
 
-    write_log("Скрипт начал свою работу в - " + str(today))
-    write_log("Скрипт закончил свою работу в - " + str(datetime.datetime.today()))
+    write_log("The script began its work in - " + str(today))
+    write_log("The script finished its work in - " + str(datetime.datetime.today()))
 
     # set message about final update
-    p = get(SERVER_HOST + "/start_download/ok")
+    # p = get(SERVER_HOST + "/start_download/ok")
+
+    delete_lock_file()
 except Exception as error:
     write_log(str(error))

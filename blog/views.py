@@ -91,6 +91,7 @@ def post_start(request):
 # the method add new script
 def model_form_upload(request):
     # if auth anonymous => error
+    print(111111)
     if auth.get_user(request).is_anonymous:
         raise NameError("Ошибка! авторизуйтесь для добавления нового скрипта")
     # if POST add script
@@ -191,7 +192,7 @@ def post_update(request):
 
 
 # the method get update status
-def post_start_insert_in_db(request, status_code):
+def post_start_insert_in_db(status_code):
     script_code = status_code
     global DOWNLOAD_STATUS
     if str(script_code) == 'start':
@@ -225,10 +226,24 @@ def __check_name_script(name):
     return False
 
 
+def __check_user(post, request):
+    if str(post.author) != request.user.is_authenticated:
+        return HttpResponse("Access closed")
+
+
+def delete_logs_files(post):
+    # read log files
+    list_logs = os.listdir(os.path.dirname(__file__) + "/scripts_controller/logs/" + str(post.author) + "/")
+    script_logs = list()
+    for log in list_logs:
+        if log.endswith("%" + str(post.title).replace(" ", "") + "%.txt"):
+            print(log)
+
+
 # js method
-def get_cpu_info(request):
+def get_cpu_info():
     return HttpResponse(psutil.cpu_percent(interval=1))
-def get_memory_info(request):
+def get_memory_info():
     return HttpResponse(psutil.virtual_memory().percent)
-def get_disk_info(request):
+def get_disk_info():
     return HttpResponse(psutil.disk_usage('/').percent)
