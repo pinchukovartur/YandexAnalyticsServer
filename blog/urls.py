@@ -18,6 +18,7 @@ urlpatterns = [
     url(r'^disk/$', views.get_disk_info, name='get_disk_info'),
     url(r'^post/new/$', views.model_form_upload, name='model_form_upload'),
     url(r'^start_download/(?P<status_code>[a-z]+)/$$', views.post_start_insert_in_db, name='post_start_insert_in_db'),
+    url(r'^delete_log/(?P<log_file>.+)/(?P<pk>[0-9]+)/$$', views.delete_log_file, name='delete_log_file'),
 ]
 
 if settings.DEBUG:

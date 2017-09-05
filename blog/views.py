@@ -11,7 +11,8 @@ from django.utils import timezone
 
 from .forms import PostForm
 from .models import Post
-from .scripts_controller.scripts_controller import run_script, stop_scripts, get_script_status, get_count_script_instance
+from .scripts_controller.scripts_controller import run_script, stop_scripts, get_script_status,\
+    get_count_script_instance
 
 # статус, когда запускается скрипт обновления БД
 DOWNLOAD_STATUS = False
@@ -41,7 +42,7 @@ def post_detail(request, pk):
     status = get_script_status(str(post.author), str(post.title))
     # if auth script not users and not admin => error
     if str(post.author) != str(auth.get_user(request).username) and auth.get_user(request).is_superuser is False:
-        raise NameError("Ошибка доступа!!!")
+        raise NameError("access error!!!")
     script_text = ""
     # if script text not null read text
     if str(post.script) is not "":
@@ -91,7 +92,6 @@ def post_start(request):
 # the method add new script
 def model_form_upload(request):
     # if auth anonymous => error
-    print(111111)
     if auth.get_user(request).is_anonymous:
         raise NameError("Ошибка! авторизуйтесь для добавления нового скрипта")
     # if POST add script
@@ -134,6 +134,8 @@ def post_delete(request):
     for post in posts:
         # stop script
         stop_scripts(str(post.author), str(post.title))
+        # delete logs
+        __delete_logs_files(post.title, post.author)
         # if script code not null
         if str(post.script) != "":
             # delete script file
@@ -192,7 +194,7 @@ def post_update(request):
 
 
 # the method get update status
-def post_start_insert_in_db(status_code):
+def post_start_insert_in_db(request, status_code):
     script_code = status_code
     global DOWNLOAD_STATUS
     if str(script_code) == 'start':
@@ -206,6 +208,16 @@ def post_start_insert_in_db(status_code):
         return HttpResponse("okay")
     else:
         return HttpResponse("understand script_code")
+
+
+def delete_log_file(request, log_file, pk):
+    # read log files
+    log_dir = os.path.dirname(__file__) + "/scripts_controller/logs/" + str(auth.get_user(request).username) + "/"
+    list_logs = os.listdir(log_dir)
+    for log in list_logs:
+        if log.endswith(str(log_file).replace(" ", "")):
+            os.remove(log_dir + log)
+    return redirect('post_detail', pk)
 
 
 # метод проверят есть ли хоть один активный скрипт в даный момент
@@ -226,24 +238,19 @@ def __check_name_script(name):
     return False
 
 
-def __check_user(post, request):
-    if str(post.author) != request.user.is_authenticated:
-        return HttpResponse("Access closed")
-
-
-def delete_logs_files(post):
+def __delete_logs_files(script_name, script_author):
     # read log files
-    list_logs = os.listdir(os.path.dirname(__file__) + "/scripts_controller/logs/" + str(post.author) + "/")
-    script_logs = list()
+    log_dir = os.path.dirname(__file__) + "/scripts_controller/logs/" + str(script_author) + "/"
+    list_logs = os.listdir(log_dir)
     for log in list_logs:
-        if log.endswith("%" + str(post.title).replace(" ", "") + "%.txt"):
-            print(log)
+        if log.endswith("%" + str(script_name).replace(" ", "") + "%.txt"):
+            os.remove(log_dir+log)
 
 
 # js method
-def get_cpu_info():
+def get_cpu_info(request):
     return HttpResponse(psutil.cpu_percent(interval=1))
-def get_memory_info():
+def get_memory_info(request):
     return HttpResponse(psutil.virtual_memory().percent)
-def get_disk_info():
+def get_disk_info(request):
     return HttpResponse(psutil.disk_usage('/').percent)
