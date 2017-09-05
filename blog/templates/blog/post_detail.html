@@ -37,12 +37,19 @@
     <form action="/delete/" method="post" style="margin-left: 95%; margin-top: 1%">
         {% csrf_token %}
         <input type="hidden" name="post_id" value="{{ post.pk }}">
-        <button class="glyphicon glyphicon-remove" onclick="return confirmDelete();"></button>
+        <button class="glyphicon glyphicon-remove" onclick="return scriptDelete();"></button>
         <h6>delete</h6>
     </form>
         <script>
-            function confirmDelete() {
+            function scriptDelete() {
         if (confirm("Are you sure you want to completely delete the script?")) {
+            return true;
+        } else {
+            return false;
+            }
+        }
+        function logDelete() {
+        if (confirm("Are you sure you want to delete the log file?")) {
             return true;
         } else {
             return false;
@@ -119,12 +126,12 @@
                 </th>
             </tr>
         </table>
+    {% for log in script_logs %}
+        <a href="/media/logs/{{ post.author }}/{{ log }}">{{ log }}</a>
+        <a href="/delete_log/{{ log }}/{{ post.pk }}/" style="background: black; color: white" onclick="return logDelete();"><-- delete log file</a><br><br>
+    {% endfor %}
     </div>
     <br>
-
-    {% for log in script_logs %}
-        <a href="/media/logs/{{ post.author }}/{{ log }}">{{ log }}</a><br>
-    {% endfor %}
 </div>
 </div>
 

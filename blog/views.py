@@ -11,7 +11,8 @@ from django.utils import timezone
 
 from .forms import PostForm
 from .models import Post
-from .scripts_controller.scripts_controller import run_script, stop_scripts, get_script_status, get_count_script_instance
+from .scripts_controller.scripts_controller import run_script, stop_scripts, get_script_status,\
+    get_count_script_instance
 
 # статус, когда запускается скрипт обновления БД
 DOWNLOAD_STATUS = False
@@ -41,7 +42,7 @@ def post_detail(request, pk):
     status = get_script_status(str(post.author), str(post.title))
     # if auth script not users and not admin => error
     if str(post.author) != str(auth.get_user(request).username) and auth.get_user(request).is_superuser is False:
-        raise NameError("Ошибка доступа!!!")
+        raise NameError("access error!!!")
     script_text = ""
     # if script text not null read text
     if str(post.script) is not "":
@@ -133,6 +134,8 @@ def post_delete(request):
     for post in posts:
         # stop script
         stop_scripts(str(post.author), str(post.title))
+        # delete logs
+        __delete_logs_files(post.title, post.author)
         # if script code not null
         if str(post.script) != "":
             # delete script file
@@ -207,6 +210,16 @@ def post_start_insert_in_db(request, status_code):
         return HttpResponse("understand script_code")
 
 
+def delete_log_file(request, log_file, pk):
+    # read log files
+    log_dir = os.path.dirname(__file__) + "/scripts_controller/logs/" + str(auth.get_user(request).username) + "/"
+    list_logs = os.listdir(log_dir)
+    for log in list_logs:
+        if log.endswith(str(log_file).replace(" ", "")):
+            os.remove(log_dir + log)
+    return redirect('post_detail', pk)
+
+
 # метод проверят есть ли хоть один активный скрипт в даный момент
 def __check_run_script():
     posts = Post.objects.filter()
@@ -223,6 +236,15 @@ def __check_name_script(name):
         if post.title == name:
             return True
     return False
+
+
+def __delete_logs_files(script_name, script_author):
+    # read log files
+    log_dir = os.path.dirname(__file__) + "/scripts_controller/logs/" + str(script_author) + "/"
+    list_logs = os.listdir(log_dir)
+    for log in list_logs:
+        if log.endswith("%" + str(script_name).replace(" ", "") + "%.txt"):
+            os.remove(log_dir+log)
 
 
 # js method

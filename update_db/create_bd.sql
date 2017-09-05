@@ -50,14 +50,14 @@ CREATE TABLE `analytics`.`events` (
   `error_receive_timestamp` INT(254) NULL,
   `error_timestamp` VARCHAR(500) NULL,
   `google_aid` VARCHAR(200) NULL,
-  `ios_ifa` VARCHAR(200) NULL,
-  `ios_ifv` VARCHAR(200) NULL,
-  `mcc` INT(254) NULL,
-  `mnc` INT(254) NULL,
-  `operator_name` VARCHAR(200) NULL,
-  `os_name` VARCHAR(200) NULL,
-  `os_version` VARCHAR(200) NULL,
-  `windows_aid` VARCHAR(200) NULL,
+  `ios_ifa` VARCHAR(50) NULL,
+  `ios_ifv` VARCHAR(50) NULL,
+  `mcc` INT(10) NULL,
+  `mnc` INT(10) NULL,
+  `operator_name` VARCHAR(50) NULL,
+  `os_name` VARCHAR(50) NULL,
+  `os_version` VARCHAR(50) NULL,
+  `windows_aid` VARCHAR(50) NULL,
   PRIMARY KEY (`iderror`));
 
   CREATE TABLE `analytics`.`installations` (
