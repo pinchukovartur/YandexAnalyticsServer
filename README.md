@@ -10,6 +10,8 @@ This project allows you to download data from Yandex analytics and work with thi
 
 
  #Update DB algorithm
+ 
+ 
  ![alt tag](https://github.com/pinchukovartur/YandexAnalyticsServer/blob/master/doc/YandexAnalytic.png "Algorithm update db")
  
  
