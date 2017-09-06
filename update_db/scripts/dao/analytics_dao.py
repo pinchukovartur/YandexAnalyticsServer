@@ -7,7 +7,7 @@ from MySQLdb import *
 # Program by Pinchukov Artur
 #
 # Version     Data      Info
-#  1.0     11.08.2017
+#  1.0     11.08.2017   Very bad script :( I was little and stupid
 # ---------------------------------------------------------------------
 
 class AnalyticsDB:
@@ -19,21 +19,6 @@ class AnalyticsDB:
                                   host=host,
                                   db="analytics")
         self.connection.set_character_set('utf8')
-
-    """ The method return list row with events"""
-
-    def get_all_events(self):
-        query = "SELECT * FROM analytics.events"
-        self.connection.query(query)
-        result = self.connection.store_result()
-        list_row = list(result.fetch_row(result.num_rows()))
-        return list_row
-
-    def check_db_valid(self, date):
-        if str(date) == "0000-00-00 00:00:00":
-            return "0001-01-01 00:00:00"
-        else:
-            return date
 
     """ The method add event in DB"""
 
@@ -48,8 +33,9 @@ class AnalyticsDB:
                 event["android_id"], event["app_package_name"], event["app_version_name"],
                 event["appmetrica_device_id"],
                 event["city"], event["connection_type"], event["country_iso_code"], event["device_locale"],
-                event["device_manufacturer"], event["device_model"], event["device_type"], self.check_db_valid(event["event_datetime"]),
-                event["event_json"], event["event_name"], self.check_db_valid(event["event_receive_datetime"]),
+                event["device_manufacturer"], event["device_model"], event["device_type"],
+                self.check_date_valid(event["event_datetime"]),
+                event["event_json"], event["event_name"], self.check_date_valid(event["event_receive_datetime"]),
                 event["event_receive_timestamp"],
                 event["event_timestamp"], event["google_aid"], event["ios_ifa"], event["ios_ifv"], event["mcc"],
                 event["mnc"], event["operator_name"], event["os_name"], event["os_version"]))
@@ -76,18 +62,20 @@ class AnalyticsDB:
                 error["android_id"], error["app_package_name"], error["app_version_name"],
                 error["appmetrica_device_id"],
                 error["city"], error["connection_type"], error["country_iso_code"], error["device_locale"],
-                error["device_manufacturer"], error["device_model"], error["device_type"], self.check_db_valid(error["error_datetime"]),
-                error["error"], error["error_id"], self.check_db_valid(error["error_receive_datetime"]),
+                error["device_manufacturer"], error["device_model"], error["device_type"],
+                self.check_date_valid(error["error_datetime"]),
+                error["error"], error["error_id"], self.check_date_valid(error["error_receive_datetime"]),
                 error["error_receive_timestamp"],
                 error["error_timestamp"], error["google_aid"], error["ios_ifa"], error["ios_ifv"], error["mcc"],
                 error["mnc"], error["operator_name"], error["os_name"], error["os_version"]))
-
+            print(len(str(error["error"])))
             self.connection.commit()
 
         except MySQLError as error_str:
             print(error_str)
             f = open("err.txt", "a")
             f.write(str(error_str))
+            f.write(str(error["error"]))
             f.close()
             self.connection.rollback()
 
@@ -109,8 +97,9 @@ class AnalyticsDB:
                 install["country_iso_code"], install["device_locale"], install["device_manufacturer"],
                 install["device_model"], install["device_type"], install["match_type"],
                 install["is_reinstallation"], install["install_receive_timestamp"], install["install_timestamp"],
-                install["install_ipv6"], self.check_db_valid(install["install_datetime"]), self.check_db_valid(install["install_receive_datetime"]),
-                self.check_db_valid(install["click_datetime"]), install["click_ipv6"], install["click_id"],
+                install["install_ipv6"], self.check_date_valid(install["install_datetime"]),
+                self.check_date_valid(install["install_receive_datetime"]),
+                self.check_date_valid(install["click_datetime"]), install["click_ipv6"], install["click_id"],
                 install["click_user_agent"], install["click_url_parameters"], install["click_timestamp"],
                 install["google_aid"], install["ios_ifa"], install["ios_ifv"],
                 install["mcc"], install["mnc"], install["operator_name"],
@@ -146,8 +135,8 @@ class AnalyticsDB:
             self.connection.cursor().execute(query, (
                 crash["android_id"], crash["app_package_name"], crash["app_version_name"],
                 crash["appmetrica_device_id"], crash["city"], crash["connection_type"],
-                crash["country_iso_code"], crash["crash"], self.check_db_valid(crash["crash_datetime"]),
-                crash["crash_group_id"], crash["crash_id"], self.check_db_valid(crash["crash_receive_datetime"]),
+                crash["country_iso_code"], crash["crash"], self.check_date_valid(crash["crash_datetime"]),
+                crash["crash_group_id"], crash["crash_id"], self.check_date_valid(crash["crash_receive_datetime"]),
                 crash["crash_receive_timestamp"], crash["crash_timestamp"], crash["device_locale"],
                 crash["device_manufacturer"], crash["device_model"], crash["device_type"],
                 crash["google_aid"], crash["ios_ifa"],
@@ -162,6 +151,7 @@ class AnalyticsDB:
             f.write(str(error_str))
             f.close()
             self.connection.rollback()
+
     """ The method return max value datetime events"""
 
     def get_max_event_datetime(self):
@@ -209,3 +199,30 @@ class AnalyticsDB:
             return str(data)
         else:
             return "2012-01-01 00:00:00"
+
+    """ The method return list row with events"""
+
+    def get_all_events(self):
+        query = "SELECT * FROM analytics.events"
+        self.connection.query(query)
+        result = self.connection.store_result()
+        list_row = list(result.fetch_row(result.num_rows()))
+        return list_row
+
+    """ The method checks the validation date"""
+
+    @staticmethod
+    def check_date_valid(date):
+        if str(date) == "0000-00-00 00:00:00":
+            return "0001-01-01 00:00:00"
+        else:
+            return date
+
+
+
+    @staticmethod
+    def check_str_len(check_str):
+        if len(str(check_str)) > 1000:
+            return check_str[0:1000]
+        else:
+            return check_str
