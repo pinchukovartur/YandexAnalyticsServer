@@ -13,11 +13,11 @@ TOKEN = "AQAAAAATpP0XAAR70vxUpgjrAkq_h3IGIcgKL-0"
 TIME_SLEEP = 10
 # number of packets to which data is divided
 COUNT_PACK = 1000
-SERVER_HOST = "http://192.168.0.111:8080"
+SERVER_HOST = "http://localhost:8080"
 DB_USER = "root"
 DB_PASSWORD = "root"
 DB_NAME = "analytics"
-DB_HOST = "127.0.0.1"
+DB_HOST = "localhost"
 dir_project = os.path.dirname(os.path.realpath(__file__))
 LOG_FILE = dir_project + "/log.txt"
 ERR_FILE = dir_project + "/err.txt"

@@ -1,0 +1,7 @@
+.idea
+blog/__pycache__
+blog/migrations/__pycache__
+blog/scripts_controller/__pycache__
+loginsys/__pycache__
+mysite/__pycache__
+
