@@ -24,7 +24,7 @@ def print_progressbar(iteration, total, prefix='', suffix='', decimals=1, length
         print()
 
 
-# the method return console parameters
+# The method return console parameters
 def get_console_param():
     # read console parameter
     parser = argparse.ArgumentParser(description='This script update mysql db with yandex analytics data')

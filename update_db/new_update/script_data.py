@@ -1,9 +1,13 @@
-import os
+# standard lib
 import datetime
+# download lib
 import mysql.connector
+# my lib
+from utils.slack_util import send_message_in_slack, SLACK_RED
+from const import *
 
 """
-Данный скрипт отвечает за получение данных с базы
+Данный скрипт отвечает за получение данных с базы и создания запросов в яндекс
 """
 
 
@@ -28,6 +32,8 @@ def __get_max_datetime__(table, column):
     except Exception as mysql_error:
         print(query)
         print(mysql_error)
+        send_message_in_slack(SLACK_URL, SLACK_CHANEL, "Error get max date", str(mysql_error), SLACK_USERNAME,
+                              SLACK_ICON, SLACK_RED)
         exit(1)
     finally:
         cursor.close()
@@ -52,6 +58,10 @@ def __check_data__(value):
 
 
 def __get_end_date__():
+    """
+    Метод возвращает текущую дату отформатированную для яндес запроса
+    :return: текущая дата
+    """
     today = datetime.datetime.today()
     date_end = str(today.date()) + "%20" + __check_data__(today.hour) + "%3A" + __check_data__(
         today.minute) + "%3A" + __check_data__(today.second)
@@ -59,10 +69,10 @@ def __get_end_date__():
 
 
 # CREATE REQUEST
-
 def request_events():
     last_download_events = datetime.datetime.strptime(__get_max_datetime__("events", "event_datetime"),
                                                       '%Y-%m-%d %H:%M:%S')
+    print("Last download events: " + str(last_download_events))
     data_start_event = str(last_download_events.date()) + "%20" + __check_data__(
         last_download_events.hour) + "%3A" + __check_data__(last_download_events.minute) + "%3A" + __check_data__(
         last_download_events.second)
@@ -82,6 +92,7 @@ def request_events():
 def request_errors():
     last_download_errors = datetime.datetime.strptime(__get_max_datetime__("errors", "error_datetime"),
                                                       '%Y-%m-%d %H:%M:%S')
+    print("Last download errors: " + str(last_download_errors))
     date_start_error = str(last_download_errors.date()) + "%20" + __check_data__(
         last_download_errors.hour) + "%3A" + __check_data__(last_download_errors.minute) + "%3A" + __check_data__(
         last_download_errors.second)
@@ -100,6 +111,7 @@ def request_errors():
 def request_crashes():
     last_download_crashes = datetime.datetime.strptime(__get_max_datetime__("crashes", "crash_datetime"),
                                                        '%Y-%m-%d %H:%M:%S')
+    print("Last download crashes: " + str(last_download_crashes))
     date_start_crashes = str(last_download_crashes.date()) + "%20" + __check_data__(
         last_download_crashes.hour) + "%3A" + __check_data__(last_download_crashes.minute) + "%3A" + __check_data__(
         last_download_crashes.second)
@@ -118,7 +130,7 @@ def request_crashes():
 def request_installs():
     last_download_installations = datetime.datetime.strptime(__get_max_datetime__("installations", "install_datetime"),
                                                              '%Y-%m-%d %H:%M:%S')
-
+    print("Last download installations: " + str(last_download_installations))
     date_start_installs = str(last_download_installations.date()) + "%20" + __check_data__(
         last_download_installations.hour) + "%3A" + __check_data__(
         last_download_installations.minute) + "%3A" + __check_data__(

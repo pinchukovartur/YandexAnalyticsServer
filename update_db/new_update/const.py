@@ -1,9 +1,8 @@
 # STATIC DATA
 # download config
 TOKEN = "AQAAAAATpP0XAAR70vxUpgjrAkq_h3IGIcgKL-0"
-TIME_SLEEP = 1
+TIME_SLEEP = 10
 COUNT_PACK = 1000
-
 # database config
 SERVER_HOST = "http://localhost:8080"
 DB_USER = "root"

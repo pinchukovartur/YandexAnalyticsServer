@@ -48,7 +48,7 @@ def get_list_json_files(file_name, request_str):
     list_files_name = list()
     for i in range(COUNT_PACK):
         response = __sen_request__(request_str + "&parts_count=" + str(COUNT_PACK)
-                                   + "&part_number=" + str(i) + "&oauth_token=" + TOKEN)
+                                  + "&part_number=" + str(i) + "&oauth_token=" + TOKEN)
         # save to file
         tmp_folder = os.path.dirname(os.path.realpath(__file__)) + "/tmp/"
         if __check_tmp_folder__(tmp_folder):

@@ -1,8 +1,10 @@
 import os
 
+# lock file path
 __lock_file_path__ = os.path.dirname(os.path.realpath(__file__)) + "/lock.app"
 
 
+# The method create lock file
 def start_work():
     if os.path.isfile(__lock_file_path__):
         raise NameError("start work: found lock file")
@@ -12,6 +14,7 @@ def start_work():
         file.close()
 
 
+# The method delete lock file
 def end_work():
     if os.path.isfile(__lock_file_path__):
         os.remove(__lock_file_path__)

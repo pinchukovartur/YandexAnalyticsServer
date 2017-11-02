@@ -72,9 +72,14 @@ def __check_value__(str_val):
 
 
 def add(table_name, list_path_for_json_events_files):
+    """
+    Метод добавляет данные из списка jsonфайла в таблицу db
+    :param table_name: название таблицы в бд
+    :param list_path_for_json_events_files: лист json файлов
+    """
     global count_entity
     global count_queries
-    i = 0
+    i = 1
     for path in list_path_for_json_events_files:
 
         f = open(path, encoding="utf-8-sig")
@@ -89,19 +94,16 @@ def add(table_name, list_path_for_json_events_files):
                 __insert__(query)
                 count_queries = count_queries + 1
 
-        print_progressbar(i, len(list_path_for_json_events_files), prefix='Insert ' + table_name + ':',
-                          suffix='Inserts: '+str(count_entity) + " query: " + str(count_queries), length=50)
+        print_progressbar(i, len(list_path_for_json_events_files), prefix='Insert ' + str(table_name) + ':',
+                          suffix='Inserts: ' + str(table_name) + ':' + str(count_entity) + "; count query in db: "
+                                 + str(count_queries), length=50)
         i += 1
 
-    send_message_in_slack(SLACK_URL, SLACK_CHANEL, "Insert in DB finished", "добавленно " + table_name +
-                          ": " + str(count_entity) + "\nзапросов было отправленно: " + str(count_queries),
+    send_message_in_slack(SLACK_URL, SLACK_CHANEL, "Insert in DB finished", "add new: " + table_name +
+                          ": " + str(count_entity) + "\nquery: " + str(count_queries),
                           SLACK_USERNAME, SLACK_ICON, SLACK_GREEN)
-
-    print("добавленно " + table_name + ": " + str(count_entity))
-    print("запросов было отправленно: " + str(count_queries))
     count_entity = 0
     count_queries = 0
-    print("-------------FINISH-------------")
 
 
 def __insert__(query):
